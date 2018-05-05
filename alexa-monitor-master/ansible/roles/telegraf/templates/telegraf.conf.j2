@@ -1,0 +1,17 @@
+[agent]
+  hostname = "{{hostname}}"
+
+[[inputs.cpu]]
+  percpu = false
+  totalcpu = true
+  fieldpass = [ "usage*" ]
+
+[[inputs.disk]]
+  fielddrop = [ "inodes*" ]
+  mount_points= ["/"]
+
+[[inputs.mem]]
+
+[[outputs.influxdb]]
+  urls = ["http://{{influxdb_ip}}:8086"]
+  database = "infrastructure"

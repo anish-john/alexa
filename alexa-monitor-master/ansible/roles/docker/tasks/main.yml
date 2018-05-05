@@ -1,0 +1,13 @@
+---
+- name: Install Docker CE
+  yum:
+    name: docker
+    state: latest
+  become: true
+
+- name: Add {{remote_user}} to docker group
+  user:
+    name: "{{remote_user}}"
+    groups: docker
+    append: yes
+  become: true

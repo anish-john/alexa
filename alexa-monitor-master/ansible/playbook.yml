@@ -1,0 +1,7 @@
+---
+- name: Install Telegraf Agent
+  hosts: nodes
+  remote_user: "{{remote_user}}"
+  roles:
+    - docker
+    - telegraf
